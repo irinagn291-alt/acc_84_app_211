@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "app_id": "app_211",
+  "app_name": "VerdantPlate",
+  "instance_index": 11,
+  "numeric_suffix": 211,
+  "bundle_id": "app.VerdantPlate.ios",
+  "display_name": "VerdantPlate",
+  "uuid": "ef651fe3-5ff3-4cc3-9caf-ca74048d7dcc",
+  "generated_at": "2026-05-14T05:07:52.472254+00:00"
+}
