@@ -7,6 +7,7 @@ struct VerdantPrefsPanel: View {
     @State private var prefs = VerdantPrefsSnapshot.defaultValue
     @State private var showClearConfirm = false
     @State private var showResetWelcome = false
+    @State private var showContactUs = false
 
     var body: some View {
         NavigationStack {
@@ -38,6 +39,12 @@ struct VerdantPrefsPanel: View {
                 Section("Onboarding") {
                     Button("Show welcome again") {
                         showResetWelcome = true
+                    }
+                }
+
+                Section("Support") {
+                    Button("Contact us") {
+                        showContactUs = true
                     }
                 }
 
@@ -74,6 +81,18 @@ struct VerdantPrefsPanel: View {
                     save()
                 }
                 Button("Cancel", role: .cancel) {}
+            }
+            .sheet(isPresented: $showContactUs) {
+                NavigationStack {
+                    VerdantWebContentShell(urlString: VPRuntimeLexicon.contactSupportURL)
+                        .navigationTitle("Contact us")
+                        .navigationBarTitleDisplayMode(.inline)
+                        .toolbar {
+                            ToolbarItem(placement: .confirmationAction) {
+                                Button("Done") { showContactUs = false }
+                            }
+                        }
+                }
             }
         }
     }
