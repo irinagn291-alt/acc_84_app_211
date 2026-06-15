@@ -30,7 +30,6 @@ workflows:
       install your project's dependencies if any, run your Xcode tests, export
       an IPA file from the project and save it.
     steps:
-    - activate-ssh-key@4: {}
     - git-clone@8: {}
     - script@1:
         title: Prepare ASC key (.p8), modern .p12, relax pbxproj signing for App Store archive
@@ -110,7 +109,6 @@ workflows:
     - deploy-to-bitrise-io@2: {}
   build_for_testing:
     steps:
-    - activate-ssh-key@4: {}
     - git-clone@8: {}
     - xcode-build-for-test@3:
         inputs:
@@ -133,7 +131,6 @@ workflows:
       install your project's dependencies if any, run your Xcode tests and save
       the test results.
     steps:
-    - activate-ssh-key@4: {}
     - git-clone@8: {}
     - xcode-test@6:
         inputs:
